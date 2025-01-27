@@ -18,9 +18,8 @@ class Student:
             "email": self.email,
             "pwd": self.pwd
         }
-        with open("students.json", "a") as f:
-            f.write(json.dumps(student_data))
-            f.write("\n")
+        with open("students.json", "w") as f:
+            json.dump(student_data, f)
 
     def __str__(self):
         return f"Student(nom={self.nom}, prenom={self.prenom}, adresse={self.adresse}, date_de_naissance={self.date_de_naissance}, email={self.email})"
