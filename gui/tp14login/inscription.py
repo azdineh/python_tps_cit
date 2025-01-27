@@ -16,7 +16,7 @@ def buildField(root,fieldname="nom",bg="lightgreen"):
 
     entry=tk.Entry(frame1, fg="blue", font=("Calibri",20))
     entry.pack(side="top",fill="x")
-    return frame1
+    return frame1, entry
 
 labletitle=tk.Label(root,text="Inscription", fg="blue", font=('Tahoma', 32))
 
@@ -25,28 +25,35 @@ labletitle.grid(column=0,row=0,sticky="nsew")
 frame0=tk.Frame(root, bg="green")
 frame0.grid(row=1,column=0, sticky="snew")
 
-fnom=buildField(frame0,fieldname="Nom:")
+fnom, nom_entry = buildField(frame0,fieldname="Nom:")
 fnom.pack(side="top",fill="x")
 
-fprenom=buildField(frame0,fieldname="Prénom:")
+fprenom, prenom_entry = buildField(frame0,fieldname="Prénom:")
 fprenom.pack(side="top",fill="x")
 
-fdate=buildField(frame0,fieldname="Date de naissance:")
+fdate, date_entry = buildField(frame0,fieldname="Date de naissance:")
 fdate.pack(side="top",fill="x")
 
-fadresse=buildField(frame0,fieldname="Adresse:")
+fadresse, adresse_entry = buildField(frame0,fieldname="Adresse:")
 fadresse.pack(side="top",fill="x")
 
-femail=buildField(frame0,fieldname="Email:")
+femail, email_entry = buildField(frame0,fieldname="Email:")
 femail.pack(side="top",fill="x")
 
-fpwd=buildField(frame0,fieldname="Mot de passe:")
+fpwd, pwd_entry = buildField(frame0,fieldname="Mot de passe:")
 fpwd.pack(side="top",fill="x")
 
 
 def saveStudent():
-    s1=Student(nom="Fassi",prenom="Zakaria",adresse="Fes",date_de_naissance="08/12/2000",email="zakaria@gmail.com",pwd="876786pop")
-    
+    student = Student(
+        nom=nom_entry.get(),
+        prenom=prenom_entry.get(),
+        adresse=adresse_entry.get(),
+        date_de_naissance=date_entry.get(),
+        email=email_entry.get(),
+        pwd=pwd_entry.get()
+    )
+    student.save()
 
 btnsave=tk.Button(root,text="Enregistrer", command=saveStudent, font=("Verdana",20))
 btnsave.grid(row=2,column=0)

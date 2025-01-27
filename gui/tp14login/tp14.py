@@ -1,4 +1,5 @@
 import tkinter as tk
+import subprocess
 
 root = tk.Tk()
 root.title("Login")
@@ -39,7 +40,12 @@ frame3.grid(row=2,column=0,columnspan=2,sticky="ew")
 
 loginbutton=tk.Button(frame3,text="Login",font=("Arial",15),bg="blue",fg="white",padx=10)
 loginbutton.pack(side="left",fill="x",expand=True,padx=10)
-signbutton=tk.Button(frame3,text="Sign up",font=("Arial",15),bg="blue",fg="white")
+
+def open_inscription():
+    root.destroy()
+    subprocess.run(["python", "D:/python_tps_cit/gui/tp14login/inscription.py"])
+
+signbutton=tk.Button(frame3,text="Sign up",font=("Arial",15),bg="blue",fg="white",command=open_inscription)
 signbutton.pack(side="right",fill="x",expand=True)
 
 
