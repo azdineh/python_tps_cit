@@ -12,8 +12,6 @@ users=[
     {"username":"admin","password":"admin"}
        ]
 
-
-
 label1=tk.Label(root,text="Login page",padx=10,pady=10,anchor="e",bg="black",fg="white",font=("Arial",20))
 label1.grid(row=0,column=0,sticky="nsew")
 frame1=tk.Frame(root,padx=10,pady=10,)
